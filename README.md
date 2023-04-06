@@ -1,3 +1,3 @@
-# Python Rep
+# python utilities 
 
-_This repo has multiple projects made with python_
+_This repo has multiple utility projects made with python_
