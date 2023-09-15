@@ -51,6 +51,70 @@ Quitting Pygame:
 
 After the main loop terminates (usually when the window is closed), Pygame is quit using pygame.quit().
 """
+"""
+Points explanation.
+
+
+Suppose we have the following variables:
+
+x is currently 2
+y is currently 3
+x_center is 100
+y_center is 100
+We'll calculate the eight symmetric points using these values:
+
+(x + x_center, y + y_center):
+
+x + x_center = 2 + 100 = 102
+y + y_center = 3 + 100 = 103
+So, the first point is (102, 103).
+(-x + x_center, y + y_center):
+
+(-2 + 100 = 98)
+y + y_center = 3 + 100 = 103
+The second point is (98, 103).
+(x + x_center, -y + y_center):
+
+x + x_center = 2 + 100 = 102
+(-3 + 100 = 97)
+The third point is (102, 97).
+(-x + x_center, -y + y_center):
+
+(-2 + 100 = 98)
+(-3 + 100 = 97)
+The fourth point is (98, 97).
+(y + x_center, x + y_center):
+
+(3 + 100 = 103)
+(2 + 100 = 102)
+The fifth point is (103, 102).
+(-y + x_center, x + y_center):
+
+(-3 + 100 = 97)
+(2 + 100 = 102)
+The sixth point is (97, 102).
+(y + x_center, -x + y_center):
+
+(3 + 100 = 103)
+(-2 + 100 = 98)
+The seventh point is (103, 98).
+(-y + x_center, -x + y_center):
+
+(-3 + 100 = 97)
+(-2 + 100 = 98)
+The eighth point is (97, 98).
+So, for this specific case, the eight symmetric points around the center of the circle are:
+
+(102, 103)
+(98, 103)
+(102, 97)
+(98, 97)
+(103, 102)
+(97, 102)
+(103, 98)
+(97, 98)
+
+"""
 
 
 def draw_circle(screen, center, radius):
