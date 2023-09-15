@@ -16,36 +16,40 @@ pip install pygame
 """ 
 Explanation:
 
-x_center and y_center are the coordinates of the center of the circle. 
-x and y represent the current position while drawing the circle. 
-P is the decision parameter used to determine which pixel to plot in each step.
+The draw_circle function:
 
-The algorithm starts by initializing x to 0 and y to the radius. P is calculated based on the initial radius.
+This function takes three arguments: screen, center, and radius.
+screen is the Pygame surface on which the circle will be drawn.
+center is a tuple containing the (x, y) coordinates of the circle's center.
+radius is the radius of the circle.
+Inside the function, there's a while-loop that implements Bresenham's circle drawing algorithm.
+The while loop in draw_circle:
 
-The loop iterates as long as x is less than or equal to y. This ensures that the algorithm covers all points in the first octant of the circle.
+x and y are variables representing the current coordinates. x starts at 0, and y is initially set to the radius of the circle.
+The loop continues as long as x is less than or equal to y, ensuring that the algorithm covers all points in the first octant of the circle.
+In each iteration of the loop, the algorithm calculates eight symmetric points around the center using the current values of x and y.
+The points list:
 
-For each iteration, it calculates the eight symmetric points around the center using the current values of x and y. These points are then plotted on the screen.
+This list contains eight tuples, each representing a point around the center of the circle. These points are calculated based on the algorithm logic.
+Plotting the points:
+
+The pygame.draw.circle function is used to draw a single-pixel circle at each of the calculated points.
+Incrementing x and updating P:
 
 x is incremented by 1 in each iteration.
+The decision parameter P is updated based on its current value. If P is less than 0, it uses the first update rule; otherwise, it uses the second update rule. This determines whether to move in the horizontal direction or the diagonal direction.
+The main loop:
 
-The decision parameter P is updated based on its current value. If P is less than 0, 
-it uses the first update rule; otherwise, it uses the second update rule. 
-This determines whether to move in the horizontal direction or the diagonal direction.
+This loop handles the Pygame window, events, and drawing.
+It clears the screen, draws the circle using draw_circle, and updates the display.
+The Pygame initialization and setup:
 
-Finally, the radius y is decremented by 1 if the second update rule is used.
+Pygame is initialized using pygame.init().
+The screen dimensions are set, and a window titled "Bresenham Circle Drawing Algorithm" is created.
+The center and radius of the circle are specified.
+Quitting Pygame:
 
-The code then uses Pygame to draw the points on the screen and updates the display
-"""
-# while-loop segment explanation
-""" 
-x: This is a variable that represents the current x-coordinate. It starts at 0 and is incremented in each iteration of the loop.
-y: This is a variable that represents the current y-coordinate, which is initially set to the radius of the circle.
-The condition x <= y means that the loop will continue executing as long as x is less than or equal to y. 
-This ensures that the algorithm covers all points in the first octant of the circle.
-
-As the loop iterates, x will gradually increase, and y will decrease (if needed), until the condition x <= y 
-is no longer met. At that point, the loop will terminate, and the circle will be fully drawn. 
-The Bresenham's algorithm ensures that the circle is drawn with a good approximation of symmetry and efficiency
+After the main loop terminates (usually when the window is closed), Pygame is quit using pygame.quit().
 """
 
 
