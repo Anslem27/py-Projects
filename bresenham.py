@@ -184,3 +184,56 @@ while running:
 # Quit Pygame
 pygame.quit()
 sys.exit()
+
+# With points defined
+#########
+#######
+import pygame
+import sys
+
+def draw_circle_with_given_points(screen, points):
+    """
+    Draws a circle on the Pygame screen using a list of specified points.
+
+    Args:
+        screen (pygame.Surface): The surface to draw on.
+        points (list): A list of points (x, y) that lie on the circumference of the circle.
+
+    Returns:
+        None
+    """
+    for point in points:
+        pygame.draw.circle(screen, (255, 255, 255), point, 1)
+
+# Initialize Pygame
+pygame.init()
+
+# Set screen dimensions
+width, height = 400, 400
+screen = pygame.display.set_mode((width, height))
+pygame.display.set_caption("Circle with Given Points")
+
+# Define the circle points
+circle_points = [
+    (2, 3), (3, 2), (2, 1), (1, 2),
+    (2, 2), (3, 3), (1, 1), (3, 1), (1, 3)
+]
+
+# Main loop
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    # Clear the screen
+    screen.fill((0, 0, 0))
+
+    # Draw the circle using the specified points
+    draw_circle_with_given_points(screen, circle_points)
+
+    pygame.display.flip()
+
+# Quit Pygame
+pygame.quit()
+sys.exit()
